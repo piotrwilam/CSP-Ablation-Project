@@ -32,4 +32,4 @@ artifacts/
 *.npy
 
 # Data files (large)
-data/minimal_pairs_code.json
+# data/minimal_pairs_code.json
