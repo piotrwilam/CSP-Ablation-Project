@@ -4,7 +4,7 @@ Mechanistic interpretability of code vulnerability detection in OpenAI's **circu
 
 ## Overview
 
-This project investigates how a weight-sparse transformer (419M params, 8 layers) internally represents the distinction between *secure* and *insecure* Python code. The work is organized in two phases:
+This project investigates how a weight-sparse transformer (419M params, 8 layers) internally represents the distinction between *secure* and *insecure* Python code. The work is organized in three sprints with different minimal-pair datasets. **Sprint 1** (Phase 1 + Phase 2) is complete.
 
 | Phase | Notebook | Description |
 |-------|----------|-------------|
@@ -56,7 +56,8 @@ My Drive/
 ```
 
 **Hugging Face**: [piotrwilam/CSP-Ablation-Project](https://huggingface.co/piotrwilam/CSP-Ablation-Project)  
-Artifacts are auto-pushed after each run (Drive + HF). Load: Drive first, HF fallback.
+Artifacts are auto-pushed after each run (Drive + HF). Load: Drive first, HF fallback.  
+Sprint 1 artifacts: [artifacts/sprint1/v1.0](https://huggingface.co/piotrwilam/CSP-Ablation-Project/tree/main/artifacts/sprint1/v1.0)
 
 ## Setup
 
@@ -64,13 +65,22 @@ Artifacts are auto-pushed after each run (Drive + HF). Load: Drive first, HF fal
 2. Set runtime to **GPU** (T4 or better).
 3. Run the install cell once, restart the runtime, then run all remaining cells.
 
-## Key Results (Phase 1)
+## Key Results — Sprint 1 Complete
 
+**Phase 1 (Probing)**
 | Metric | Value |
 |--------|-------|
 | Best linear probe layer | 4 (87.0%) |
 | Best MLP probe layer | 6 (84.4%) |
 | Dataset | 192 minimal pairs → 384 examples |
+
+**Phase 2 (Ablation)**
+| Metric | Value |
+|--------|-------|
+| Baseline probe accuracy | 86.7% |
+| Accuracy at k=20 ablation | ~50% (chance) |
+| Signal concentration | Compact — top ~20 features carry most signal |
+| Artifacts | [sprint1/v1.0 on HF](https://huggingface.co/piotrwilam/CSP-Ablation-Project/tree/main/artifacts/sprint1/v1.0) |
 
 ## Dataset
 
