@@ -20,33 +20,43 @@ CSP-Ablation-Project/
 ├── requirements.txt
 ├── .gitignore
 ├── data/
-│   └── minimal_pairs_code.json   # not tracked — add locally or via Drive
+│   ├── sprint1/
+│   │   └── minimal_pairs_code.json
+│   ├── sprint2/                  # placeholder for Sprint 2
+│   ├── sprint3/                  # placeholder for Sprint 3
+│   └── dataset_manifest.csv      # registry of datasets
 ├── src/
-│   ├── __init__.py
-│   ├── config.py                 # paths, model ID, constants
-│   ├── model_loader.py           # load CSP model + tokenizer
-│   ├── data_loader.py            # load & flatten minimal-pairs dataset
+│   ├── config.py                 # paths, HF_REPO_ID, artifacts_dir()
+│   ├── data_loader.py            # load minimal-pairs
+│   ├── data_utils.py             # get_dataset_path(), manifest
+│   ├── model_loader.py            # load CSP model + tokenizer
 │   ├── hidden_states.py          # hook-based hidden-state extraction
 │   ├── probing.py                # linear / MLP sweeps, final probe, plots
-│   └── ablation.py               # CircuitAblator (zero + mean ablation)
-└── notebooks/
-    ├── phase1_probing.ipynb      # Phase 1 — probing tournament
-    └── phase2_ablation.ipynb     # Phase 2 — T1–T5 feature analysis & ablation
+│   ├── ablation.py               # CircuitAblator (zero + mean ablation)
+│   └── utils.py                  # save_to_hub(), load_artifact()
+├── notebooks/
+│   ├── phase1_probing.ipynb      # Phase 1 — probing tournament
+│   └── phase2_ablation.ipynb     # Phase 2 — T1–T5 feature analysis & ablation
+└── experiments/                  # timestamped run logs
 ```
 
-## Google Drive Layout
+## Google Drive & Hugging Face
 
-When running in Colab, the project expects this Drive structure:
-
+**Drive layout** (Colab):
 ```
 My Drive/
 ├── CODE/
-│   └── CSP-Ablation-Project/     # git clone of this repo
+│   └── CSP-Ablation-Project/     # git clone
 └── DATA/
     └── CSP-Ablation-Project/
-        ├── minimal_pairs_code.json  # (fallback location)
-        └── artifacts/               # Phase 1: probes, plots; Phase 2: top_features, ablation curve, etc.
+        └── artifacts/
+            ├── sprint1/
+            │   └── v1.0/         # probes, CSVs, plots (versioned)
+            └── ...
 ```
+
+**Hugging Face**: [piotrwilam/CSP-Ablation-Project](https://huggingface.co/piotrwilam/CSP-Ablation-Project)  
+Artifacts are auto-pushed after each run (Drive + HF). Load: Drive first, HF fallback.
 
 ## Setup
 

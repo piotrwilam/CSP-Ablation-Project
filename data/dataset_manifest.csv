@@ -1,0 +1,4 @@
+dataset_id,sprint,path,n_pairs,description,created
+sprint1,sprint1,sprint1/minimal_pairs_code.json,192,Python secure/insecure minimal pairs (Sprint 1 baseline),2026-02-18
+sprint2,sprint2,,0,Placeholder for Sprint 2 dataset,
+sprint3,sprint3,,0,Placeholder for Sprint 3 dataset,
