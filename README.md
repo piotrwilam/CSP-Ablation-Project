@@ -9,7 +9,7 @@ This project investigates how a weight-sparse transformer (419M params, 8 layers
 | Phase | Notebook | Description |
 |-------|----------|-------------|
 | **1 — Finding Ethical Circuits** | `notebooks/phase1_probing.ipynb` | Probing tournament (linear + MLP) across all layers to locate where security information is encoded |
-| **2 — Ablation** | `notebooks/phase2_ablation.ipynb` | Targeted ablation experiments on the identified circuits *(planned)* |
+| **2 — Ablation** | `notebooks/phase2_ablation.ipynb` | T1–T5: feature ranking, activation profiling, ablation engine, threshold sweep, generation sanity check |
 
 ## Project Structure
 
@@ -27,10 +27,11 @@ CSP-Ablation-Project/
 │   ├── model_loader.py           # load CSP model + tokenizer
 │   ├── data_loader.py            # load & flatten minimal-pairs dataset
 │   ├── hidden_states.py          # hook-based hidden-state extraction
-│   └── probing.py                # linear / MLP sweeps, final probe, plots
+│   ├── probing.py                # linear / MLP sweeps, final probe, plots
+│   └── ablation.py               # CircuitAblator (zero + mean ablation)
 └── notebooks/
     ├── phase1_probing.ipynb      # Phase 1 — probing tournament
-    └── phase2_ablation.ipynb     # Phase 2 — ablation (placeholder)
+    └── phase2_ablation.ipynb     # Phase 2 — T1–T5 feature analysis & ablation
 ```
 
 ## Google Drive Layout
@@ -44,7 +45,7 @@ My Drive/
 └── DATA/
     └── CSP-Ablation-Project/
         ├── minimal_pairs_code.json  # (fallback location)
-        └── artifacts/               # probes, plots, CSVs
+        └── artifacts/               # Phase 1: probes, plots; Phase 2: top_features, ablation curve, etc.
 ```
 
 ## Setup

@@ -37,4 +37,20 @@
 
 ## Phase 2 — Ablation
 
-*To be filled after Phase 2 experiments.*
+### T1–T5 Implementation (Sprint 1)
+
+**Notebook:** `notebooks/phase2_ablation.ipynb`  
+**Prerequisite:** Phase 1 artifacts in `DATA/CSP-Ablation-Project/artifacts/`
+
+**Pipeline:**
+- **T1** Probe weight extraction & feature ranking → `top_features.json`, weight histogram
+- **T2** Feature activation profiling → per-feature AUC, overlapping histograms for top 5
+- **T3** Ablation engine (`src/ablation.py`) — zero + mean strategies, tested on 3–5 examples
+- **T4** Ablation threshold sweep (k=1,3,5,10,20,50,100,200) → ablation curve, `ablation_sweep_results.json`
+- **T5** Generation sanity check — 40 prompts (20 insecure, 20 secure), original vs ablated output comparison
+
+**Artifacts:**
+- `top_features.json`, `weight_distribution_histogram.png`
+- `per_feature_auc.csv`, `activation_histograms_top5.png`
+- `ablation_sweep_results.json`, `ablation_curve.png`
+- `generation_comparison.csv`
